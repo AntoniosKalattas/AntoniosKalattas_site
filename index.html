@@ -3,444 +3,767 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antonios Kalattas</title>
+    <meta name="description" content="Antonios Kalattas - Software Developer and Computer Science Student. Explore projects, experience, certifications, and an interactive developer dashboard.">
+    <title>Antonios Kalattas | Software Developer Portfolio</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./ttl_logo.png" type="image/x-icon">
 </head>
-<body>
-    <main>
-        <aside class="sidebar " data-sidebar>
-            <div class="sidebar-info">
-                <figure class="avatar-box">
-                    <img src="./prof1.jpg" alt="avatar" width="50">
-                </figure>
-                <style>
-                    .avatar-box img {
-                        border-radius: 10px;
-                    }
-                </style>
+<body class="cyber-theme">
+    <!-- Interactive Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
-                <div class="info-content">
-                    <h1 class="name" title="Richard Hanrick">Antonios Kalattas</h1>
-                    <p class="title">Computer Science Student</p>
+    <!-- Top Navigation System Bar -->
+    <header class="system-bar">
+        <div class="sys-left">
+            <span class="pulse-dot"></span>
+            <span class="sys-title">SYSTEM PORTAL // ANTONIOS_KALATTAS.EXE</span>
+        </div>
+        <div class="sys-right">
+            <div class="time-widget">
+                <span class="label">SYS_TIME:</span>
+                <span id="cyprus-time">--:--:--</span>
+            </div>
+            <div class="uptime-widget">
+                <span class="label">UPTIME:</span>
+                <span id="uptime-counter">00:00:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-wrapper">
+        <aside class="sidebar-aside" data-sidebar>
+            <!-- Hexagonal/Circular Avatar Container -->
+            <div class="profile-container">
+                <div class="avatar-wrapper">
+                    <img src="https://github.com/AntoniosKalattas.png" alt="Antonios Kalattas" class="avatar-img">
+                    <div class="avatar-glow"></div>
                 </div>
-
-                <button class="info-more-btn" data-sidebar-btn>
-                    <span>Show Contacts</span>
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
+                <div class="profile-details">
+                    <h1 class="profile-name">Antonios Kalattas</h1>
+                    <div class="profile-role">
+                        <span class="typing-role" id="role-text">Software Developer</span>
+                        <span class="typing-cursor">_</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="sidebar-info-more">
-                <div class="separator"></div>
+            <div class="divider"></div>
 
-                <ul class="contacts-list">
+            <!-- Diagnostics Monitor (Widgets) -->
+            <div class="system-diagnostics">
+                <h3 class="widget-title">DIAGNOSTICS MONITOR</h3>
+                <div class="diag-item">
+                    <div class="diag-label">
+                        <span>CPU THREADS</span>
+                        <span class="value" id="cpu-value">22%</span>
+                    </div>
+                    <div class="diag-bar"><div class="diag-fill cpu-fill" style="width: 22%;"></div></div>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-label">
+                        <span>SYS_MEMORY</span>
+                        <span class="value" id="mem-value">47%</span>
+                    </div>
+                    <div class="diag-bar"><div class="diag-fill mem-fill" style="width: 47%;"></div></div>
+                </div>
+                <div class="diag-item">
+                    <div class="diag-label">
+                        <span>NET_LATENCY</span>
+                        <span class="value" id="lat-value">14ms</span>
+                    </div>
+                    <div class="diag-bar"><div class="diag-fill lat-fill" style="width: 14%;"></div></div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Contact & Metadata Grid -->
+            <div class="contact-card">
+                <h3 class="widget-title">COMMUNICATION CHANNELS</h3>
+                <ul class="contact-list">
                     <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="mail-outline"></ion-icon>
+                        <div class="contact-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </div>
-
                         <div class="contact-info">
-                            <p class="contact-title">Email</p>
-
-                            <a href="mailto:akalattasmain@gmail.com" class="contact-link">akalattasmain@gmail.com</a>
+                            <span class="label">EMAIL</span>
+                            <a href="mailto:akalattasmain@gmail.com" class="link">akalattasmain@gmail.com</a>
                         </div>
                     </li>
-
                     <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        <div class="contact-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         </div>
-
                         <div class="contact-info">
-                            <p class="contact-title">Phone</p>
-
-                            <a href="tel:+12133522795" class="contact-link">+357 99750483</a>
+                            <span class="label">PHONE</span>
+                            <a href="tel:+35799750483" class="link">+357 99750483</a>
                         </div>
                     </li>
-
                     <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="calendar-outline"></ion-icon>
+                        <div class="contact-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                         </div>
-
                         <div class="contact-info">
-                            <p class="contact-title">Birthday</p>
-
-                            <time datetime="1982-06-23">September 17, 2004</time>
+                            <span class="label">BIRTHDAY</span>
+                            <span class="value">September 17, 2004</span>
                         </div>
                     </li>
-
                     <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="location-outline"></ion-icon>
+                        <div class="contact-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         </div>
-
                         <div class="contact-info">
-                            <p class="contact-title">Location</p>
-
-                            <address>Nisou, Nicosia, Cyprus</address>
+                            <span class="label">LOCATION</span>
+                            <span class="value">Nisou, Nicosia, Cyprus</span>
                         </div>
                     </li>
                 </ul>
+            </div>
 
-                <div class="separator"></div>
+            <div class="divider"></div>
 
-                <ul class="social-list">
-                    <li class="social-item"><a href="https://github.com/AntoniosKalattas" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
-                    <!--<li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>-->
-                    <li class="social-item"><a href="https://www.linkedin.com/in/antonios-kalattas-87891a20b/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                </ul>
+            <!-- Social Links Panel -->
+            <div class="social-links-panel">
+                <a href="https://github.com/AntoniosKalattas" target="_blank" aria-label="GitHub Portal" class="social-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <span>GITHUB</span>
+                </a>
+                <a href="https://www.linkedin.com/in/antonios-kalattas-87891a20b/" target="_blank" aria-label="LinkedIn Portal" class="social-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <span>LINKEDIN</span>
+                </a>
+            </div>
+
+            <!-- Resume Download Button -->
+            <div class="resume-download-wrapper">
+                <a href="./Main Resume-hackerresume-7.pdf" target="_blank" class="cyber-btn primary-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>DOWNLOAD RESUME PDF</span>
+                </a>
+            </div>
+
+            <!-- Animation Controller -->
+            <div class="control-panel">
+                <span class="label">INTERACTION MODE:</span>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" id="btn-grid" title="Interactive Mesh Background">MESH</button>
+                    <button class="toggle-btn" id="btn-matrix" title="Matrix Falling Code Background">MATRIX</button>
+                    <button class="toggle-btn" id="btn-static" title="Low Power Mode / Static">STATIC</button>
+                </div>
             </div>
         </aside>
-        <div class="main-content">
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+
+        <!-- Main Content Area -->
+        <main class="main-content-area">
+            <!-- Glassmorphic Window Header Navigation -->
+            <nav class="console-nav">
+                <ul class="nav-tabs">
+                    <li>
+                        <button class="nav-tab active" data-tab="about">
+                            <span class="tab-number">01.</span>
+                            <span class="tab-name">DASHBOARD</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-tab" data-tab="journey">
+                            <span class="tab-number">02.</span>
+                            <span class="tab-name">JOURNEY</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-tab" data-tab="projects">
+                            <span class="tab-number">03.</span>
+                            <span class="tab-name">DATABASE</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-tab" data-tab="certifications">
+                            <span class="tab-number">04.</span>
+                            <span class="tab-name">AWARDS</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-tab" data-tab="cli">
+                            <span class="tab-number">05.</span>
+                            <span class="tab-name">TERMINAL_</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
-            <article class="about active" data-page="about">
-                <header>
-                    <h2 class="h2 article-title">About me</h2>
-                </header>
-
-                <section class="about-text">
-                    <p>As a Computer Science student at the University of Cyprus, I specialize in developing innovative software solutions that enhance user experiences and streamline daily tasks. My passion lies in transforming complex challenges into efficient, user-friendly applications.</p>
-                    <p>My role involves crafting applications that are not only functional and intuitive but also visually appealing. I aim to add a personal touch to each project, ensuring that the end product is engaging and easy to use. My goal is to convey your message and identity in the most creative and effective manner.</p>
-                </section>
-
-                <section class="service">
-                    <h3 class="h3 service-title">What I'm doing</h3>
-
-                    <ul class="service-list">
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <img src="./designIcon.png" alt="icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">UI/UX Design</h4>
-                                <p class="service-item-text">The most modern and high-quality design made at a professional level.</p>
-                            </div>
-                        </li>
-<!--
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <img src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt="icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Web development</h4>
-                                <p class="service-item-text">High-quality development of sites at the professional level.</p>
-                            </div>
-                        </li>
--->
-                        <li class="service-item">
-                            <div class="service-icon-box">
-                                <img src="./phoneIcon.png" alt="icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Cross-Platform Mobile & Desktop Application Development</h4>
-                            <p class="service-item-text">
-                                Designing and developing high-performance applications for both mobile and desktop platforms, ensuring seamless user experiences across devices.
-                            </p>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </article>
-
-            <article class="resume " data-page="resume">
-                <header>
-                    <h2 class="h2 article-title">Resume</h2>
-                </header>
-
-                <section class="timeline">
-                    <div class="title-wrapper">
-                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                        <h3 class="h3">Education</h3>
+            <!-- Window Content Console -->
+            <div class="console-body">
+                
+                <!-- 01. DASHBOARD / ABOUT MODULE -->
+                <section class="panel-section active" id="about" data-page="about">
+                    <div class="terminal-intro">
+                        <span class="code-comment">// INITIALIZATION SUCCESSFUL. LOADING PERSONAL METADATA...</span>
+                        <h2 class="section-title">ABOUT ME // OVERVIEW</h2>
                     </div>
 
-                    <ol class="timeline-list">
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">University of Cyprus</h4>
-                            <span>2022 - Present</span>
-                            <p class="timeline-text">As a second-year Computer Science student at the University of Cyprus (UCY), I have built upon my foundational knowledge to explore more advanced topics in the field. In my third semester, I delved into Computer Organization and Assembly Programming, gaining insights into the architecture and low-level operations of computer systems. Concurrently, I studied Data Structures and Algorithms, which enhanced my problem-solving skills and understanding of efficient data management.</p>
-                        </li>
-                    </ol>
-                </section>
-
-                <section class="timeline">
-                    <div class="title-wrapper">
-                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                        <h3 class="h3">Experience</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Software Developer</h4>
-                            <span>2025 - 2025</span>
-                            <p class="timeline-text">During my 6-week internship at PaleBlue, I contributed to the development of mobile applications, including Eventorio. I implemented new features, improved existing functionality, and handled edge cases to enhance the overall user experience. In addition to mobile development, I also worked on the backend using Django and Python, where I helped build and maintain APIs and supported data-related features. This internship strengthened my full-stack development skills and gave me valuable experience working in a professional software engineering environment.</p>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Sales man</h4>
-                            <span>2024 - 2024</span>
-                            <p class="timeline-text">During my tenure as a sales associate at Aeliotis, a prominent technology retailer and Cyta partner in Cyprus, I honed my customer service and sales skills. My responsibilities included assisting customers in selecting smartphones, tablets, and accessories that best suited their needs, managing inventory, and staying updated on the latest technology trends. </p>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Computer Technician</h4>
-                            <span>2019 - 2019</span>
-                            <p class="timeline-text">During my high school work experience program at Compumize, I served as a computer technician, where I developed practical skills in diagnosing and repairing hardware and software issues. This role enhanced my technical proficiency and problem-solving abilities, providing a solid foundation for my future studies in computer science.</p>
-                        </li>
-                    </ol>
-                </section>
-
-                <section class="skill">
-                    <h3 class="h3 skills-title">My Skills</h3>
-
-                    <ul class="skills-list content-card">
-                        <li class="skills-item">
-                            <div class="title-wrapper">
-                                <h5 class="h5">Problem-solving</h5>
-                                <data value="70">70%</data>
+                    <div class="about-grid">
+                        <div class="intro-card cyber-card">
+                            <div class="card-header">
+                                <span class="card-title-code">SYS_PROFILE_BIO.TXT</span>
+                                <span class="dot-buttons"><span></span><span></span><span></span></span>
                             </div>
-
-                            <div class="skills-progress-bg">
-                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            <div class="card-body">
+                                <p class="bio-text">
+                                    As a Computer Science student at the <strong>University of Cyprus</strong>, I specialize in building innovative software systems that integrate sleek frontends with performant, robust backends. I thrive on translating complex mathematical or technical problems into intuitive, user-centric applications.
+                                </p>
+                                <p class="bio-text">
+                                    My engineering philosophy emphasizes clean architecture, strict database integrity, and high-quality user interaction. Whether crafting cross-platform desktop applications, automating gym reservation systems, or constructing full-stack projects, I strive to inject visual elegance and technological excellence into everything I create.
+                                </p>
                             </div>
-                        </li>
-
-                        <li class="skills-item">
-                            <div class="title-wrapper">
-                                <h5 class="h5">Software Development</h5>
-                                <data value="100">100%</data>
-                            </div>
-
-                            <div class="skills-progress-bg">
-                                <div class="skills-progress-fill" style="width: 100%;"></div>
-                            </div>
-                        </li>
-<!--
-                        <li class="skills-item">
-                            <div class="title-wrapper">
-                                <h5 class="h5">Branding</h5>
-                                <data value="90">90%</data>
-                            </div>
-
-                            <div class="skills-progress-bg">
-                                <div class="skills-progress-fill" style="width: 90%;"></div>
-                            </div>
-                        </li>
-
-                        <li class="skills-item">
-                            <div class="title-wrapper">
-                                <h5 class="h5">WordPress</h5>
-                                <data value="50">50%</data>
-                            </div>
-
-                            <div class="skills-progress-bg">
-                                <div class="skills-progress-fill" style="width: 50%;"></div>
-                            </div>
-                        </li>-->
-                    </ul>
-                </section>
-
-                <section class="LicensesCertifications">
-                    <h3 class="h3 skills-title" style="margin-top: 20px">Licenses & Certifications</h3>
-                    <ul id="certification-list">
-                        <li class="certification-item">
-                            <strong>Cisco Certified Network Associate Industrial (CCNA I)</strong><i style="color:white"> - Cisco   </i><em>(Issued: May 2021)</em>
-                            <a href="https://drive.google.com/file/d/157GfO5v7h-CWWAAwE7Q0v5UlUeQo6g02/view?usp=sharing" target="_blank">View</a>
-                        </li>
-                        <li class="certification-item">
-                            <strong>Problem Solving (Basic) Certificate</strong><i style="color:white"> - HackerRank </i><em>(Issued: December 2021)</em>
-                            <a href="https://www.hackerrank.com/certificates/09050d619f6e" target="_blank">View</a>
-                        </li>
-                        <li class="certification-item">
-                            <strong>Java (Basic) Certificate</strong><i style="color:white"> - HackerRank </i><em>(Issued: September 2024)</em>
-                            <a href="https://www.hackerrank.com/certificates/c7fbbd9cede0" target="_blank">View</a>
-                        </li>
-                        <li class="certification-item">
-                            <strong>Introduction to Python</strong><i style="color:white"> - IEEE </i><em>(Issued: February 2025)</em>
-                            <!--<a href="https://www.hackerrank.com/certificates/c7fbbd9cede0" target="_blank">View</a> -->
-                        </li>
-                    </ul>
-                </section>
-
-
-            </article>
-
-            <article class="portfolio " data-page="portfolio">
-                <header>
-                    <h2 class="h2 article-title">Portfolio</h2>
-                </header>
-
-                <section class="projects">
-                    <ul class="filter-list">
-                        <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-                        <li class="filter-item"><button data-filter-btn>Desktop</button></li>
-                        <li class="filter-item"><button data-filter-btn>Web</button></li>
-                        <li class="filter-item"><button data-filter-btn>Mobile</button></li>
-                    </ul>
-
-                    <div class="filter-select-box">
-                        <button class="filter-select " data-select>
-                            <div class="select-value" data-select-value>Select Category</div>
-
-                            <div class="select-icon">
-                                <ion-icon name="chevron-down"></ion-icon>
-                            </div>
-                        </button>
-
-                        <ul class="select-list">
-                            <li class="select-item"><button data-select-item>All</button></li>
-                            <li class="select-item"><button data-select-item>Desktop</button></li>
-                            <li class="select-item"><button data-select-item>Mobile</button></li>
-                            <li class="select-item"><button data-select-item>Web</button></li>
-                        </ul>
-                    </div>
-
-                    <ul class="project-list">
-                        <li class="project-item active" data-filter-item data-category="desktop">
-                            <a href="https://github.com/AntoniosKalattas/Automatic-Gym-Reservation">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/Automatic-Gym-Reservation/blob/main/img/mainScreen.png?raw=true" alt="Ucy automatic Reservation System" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Ucy automatic Reservation System</h3>
-                                <p class="project-category">Application</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="mobile">
-                            <a href="https://github.com/AntoniosKalattas/todo-app">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/todo-app/blob/main/img/Screenshot%20(677).png?raw=true" alt="Todo App" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">ToDo App (PC/Android)</h3>
-                                <p class="project-category">Application</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="web">
-                            <a href="https://github.com/AntoniosKalattas/News-feed">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/News-feed/blob/main/img/img.png?raw=true" alt="NewsFeed" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">NewsFeed</h3>
-                                <p class="project-category">Web Site</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="desktop">
-                            <a href="https://github.com/AntoniosKalattas/dev-chat">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/dev-chat/blob/main/img/Screenshot%20(546).png?raw=true" alt="Dev Chat" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Dev Chat</h3>
-                                <p class="project-category">Application</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="mobile">
-                            <a href="https://github.com/AntoniosKalattas/FOODLET.AI">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/FOODLET.AI/blob/main/img/Capture.PNG?raw=true" alt="FOODLET.AI" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">FOODLET.AI</h3>
-                                <p class="project-category">Application</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="desktop">
-                            <a href="https://github.com/AntoniosKalattas/Student-DB">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="https://github.com/AntoniosKalattas/Student-DB/blob/main/img/Screenshot%202024-12-31%20at%207.53.44%E2%80%AFPM.png?raw=true" alt="Student-DB." loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Student-DB.</h3>
-                                <p class="project-category">Application</p>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </article>
-
-            <article class="contact " data-page="contact">
-                <header>
-                    <h2 class="h2 article-title">Contact</h2>
-                </header>
-
-                <section class="mapbox" data-mapbox>
-                    <figure>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3335.545515414907!2d33.385837775758425!3d35.019891172807874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDAxJzExLjYiTiAzM8KwMjMnMTguMyJF!5e1!3m2!1sel!2s!4v1739047754499!5m2!1sel!2s"  width="400" height="300" loading="lazy"></iframe>
-                    </figure>
-                </section>
-
-                <section class="contact-form">
-                    <h3 class="h3 form-title">Contact Form</h3>
-
-                    <form action="https://formspree.io/f/mldglowr" method="POST" class="form" data-form>
-                        <div class="input-wrapper">
-                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-                            <input type="email" name="email" class="form-input" placeholder="Email Address" required data-form-input>
                         </div>
 
-                        <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input=""></textarea>
+                        <!-- Core Competence Grid -->
+                        <div class="services-wrapper">
+                            <h3 class="sub-section-title">SYSTEM ROLES & CAPABILITIES</h3>
+                            <div class="services-grid">
+                                <div class="service-card cyber-card">
+                                    <div class="card-icon cyan-glow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-item-title">Application Architect</h4>
+                                        <p class="card-item-desc">Designing scalable, cross-platform mobile and desktop software using Kotlin, Java, and Swift with custom local DBs.</p>
+                                    </div>
+                                </div>
+                                <div class="service-card cyber-card">
+                                    <div class="card-icon green-glow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-item-title">Automation & Testing</h4>
+                                        <p class="card-item-desc">Building robust automated functional testing frameworks (Selenium, Python) integrated inside CI/CD developer pipelines.</p>
+                                    </div>
+                                </div>
+                                <div class="service-card cyber-card">
+                                    <div class="card-icon purple-glow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-item-title">Full-Stack Engineering</h4>
+                                        <p class="card-item-desc">Crafting lightweight Node.js/Django REST APIs with complex relational query models and optimized logic pipelines.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <button class="form-btn" type="submit" disabled data-form-btn>
-                            <ion-icon name="paper-plane"></ion-icon>
-                            <span>Send Message</span>
-                        </button>
-                    </form>
+                    <!-- Skills Matrix -->
+                    <div class="skills-matrix-wrapper">
+                        <h3 class="sub-section-title">CORE SKILLS INVENTORY</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category-card cyber-card">
+                                <h4 class="category-title">// PROGRAMMING LANGUAGES</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Kotlin</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">C++</span>
+                                    <span class="skill-tag">C</span>
+                                    <span class="skill-tag">Swift</span>
+                                    <span class="skill-tag">HTML5 / CSS3</span>
+                                </div>
+                            </div>
+                            <div class="skill-category-card cyber-card">
+                                <h4 class="category-title">// FRAMEWORKS & LIBRARIES</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Selenium</span>
+                                    <span class="skill-tag">Django</span>
+                                    <span class="skill-tag">ElectronJS</span>
+                                    <span class="skill-tag">Cordova</span>
+                                    <span class="skill-tag">Jetpack Compose</span>
+                                    <span class="skill-tag">Kotlin Multiplatform (KMP)</span>
+                                </div>
+                            </div>
+                            <div class="skill-category-card cyber-card">
+                                <h4 class="category-title">// PLATFORMS & SYSTEM</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">NodeJS</span>
+                                    <span class="skill-tag">Git Version Control</span>
+                                    <span class="skill-tag">SQL Server (T-SQL)</span>
+                                    <span class="skill-tag">OpenAI Integration</span>
+                                    <span class="skill-tag">RESTful APIs</span>
+                                    <span class="skill-tag">CI/CD Pipelines</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
-            </article>
-        </div>
-    </main>
-<!--      Credit to https://codepen.io/leonam-silva-de-souza/pen/vYowKqP -->
-    <script src="main.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
-<!-- partial -->
-  <script  src="./script.js"></script>
+                <!-- 02. JOURNEY / EXPERIENCE & EDUCATION -->
+                <section class="panel-section" id="journey" data-page="journey">
+                    <div class="terminal-intro">
+                        <span class="code-comment">// LOGS RETRIEVED FROM TIMELINE_DB.SQL</span>
+                        <h2 class="section-title">CHRONOLOGICAL DEVELOPMENT HISTORY</h2>
+                    </div>
 
+                    <div class="timeline-container">
+                        
+                        <!-- Timeline Section: Experience -->
+                        <div class="timeline-block">
+                            <h3 class="timeline-header">// SYSTEM EXPERIENCES</h3>
+                            <div class="timeline-items">
+                                
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker cyan-glow"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">Automation Tester</h4>
+                                        <span class="timeline-duration">April 2026 - Present</span>
+                                    </div>
+                                    <div class="timeline-location">Bank Of Cyprus // Nicosia, Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Architecting, building, and maintaining scalable end-to-end automation testing frameworks to secure high-performance web systems. By anchoring automated test suites straight into developer CI/CD pipelines, I reduce manual evaluation overhead, accelerate the release cycle, and guarantee system stability through rigorous regression testing.
+                                    </p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">Selenium</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">CI/CD</span>
+                                        <span class="tech-tag">Regression Testing</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker purple-glow"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">Software Developer Intern</h4>
+                                        <span class="timeline-duration">June 2025 - August 2025</span>
+                                    </div>
+                                    <div class="timeline-location">PaleBlue // Nicosia, Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Contributed heavily to cross-platform mobile systems (including <em>Eventorio</em>), debugging critical edge cases and extending UI features. Collaborated closely on the Python backend using Django, developing API features, structuring query endpoints, and supporting data migrations.
+                                    </p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Mobile SDK</span>
+                                        <span class="tech-tag">APIs</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">Sales Associate</h4>
+                                        <span class="timeline-duration">July 2024 - September 2024</span>
+                                    </div>
+                                    <div class="timeline-location">Aeliotis // Nicosia, Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Served customers in a high-traffic tech environment, analyzing client requirements to recommend mobile devices, data bundles, and hardware modifications. Managed inventory auditing and maintained device configuration setups.
+                                    </p>
+                                </div>
+
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">Computer Technician</h4>
+                                        <span class="timeline-duration">June 2019 - June 2019</span>
+                                    </div>
+                                    <div class="timeline-location">Compumize // Nicosia, Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Resolved mechanical hardware, network connection, and software system errors on desktop machines. Developed troubleshooting diagnostics, optimizing execution speeds and customer satisfaction.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Timeline Section: Education -->
+                        <div class="timeline-block">
+                            <h3 class="timeline-header">// ACADEMIC HISTORY</h3>
+                            <div class="timeline-items">
+                                
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker green-glow"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">B.Sc. in Computer Science</h4>
+                                        <span class="timeline-duration">September 2023 - May 2027</span>
+                                    </div>
+                                    <div class="timeline-location">University of Cyprus // Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Expanding theoretical and practical capabilities. Explored complex low-level computer architecture, advanced algorithms, and systems design. Special focus on database engines, data structures, and compiler logic.
+                                    </p>
+                                    <div class="academic-stats">
+                                        <span class="stat-badge">Current Average: 75.6%</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card cyber-card animate-scroll">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-header-meta">
+                                        <h4 class="timeline-title">Digital Technology & Programming Apolytirion</h4>
+                                        <span class="timeline-duration">September 2019 - June 2022</span>
+                                    </div>
+                                    <div class="timeline-location">Arch. Makarios III Technical School // Cyprus</div>
+                                    <p class="timeline-desc">
+                                        Acquired foundational core coding methodologies, hardware configurations, and network infrastructure fundamentals.
+                                    </p>
+                                    <div class="academic-stats">
+                                        <span class="stat-badge">Percentage: 92.5%</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 03. PROJECTS / DATABASE MODULE -->
+                <section class="panel-section" id="projects" data-page="portfolio">
+                    <div class="terminal-intro">
+                        <span class="code-comment">// RETRIEVING REPOSITORIES... CHOOSE MODULE TYPE</span>
+                        <h2 class="section-title">PROJECT DATABANK</h2>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">ALL_SYSTEMS</button>
+                        <button class="filter-btn" data-filter="desktop">DESKTOP</button>
+                        <button class="filter-btn" data-filter="mobile">MOBILE</button>
+                        <button class="filter-btn" data-filter="web">WEB</button>
+                    </div>
+
+                    <!-- Projects Grid -->
+                    <div class="projects-grid">
+                        
+                        <!-- Foodlet.AI -->
+                        <article class="project-card-cyber cyber-card" data-category="mobile">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <div class="phone-frame">
+                                    <div class="phone-notch"></div>
+                                    <img src="https://github.com/AntoniosKalattas/FOODLET.AI/blob/main/img/img.png?raw=true" alt="Foodlet AI" class="project-img" onerror="this.src='./designIcon.png'">
+                                </div>
+                                <div class="project-category-badge">MOBILE // KOTLIN</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">FoodletAI</h3>
+                                <p class="project-desc">
+                                    An Android native application tracking daily calorie and macronutrient intakes. Integrates OpenAI API models to process natural language food descriptions, outputting structured nutritional logs.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>Kotlin</span>
+                                    <span>Jetpack Compose</span>
+                                    <span>OpenAI API</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/FOODLET.AI" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Automatic Gym Reservation -->
+                        <article class="project-card-cyber cyber-card" data-category="desktop">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <img src="https://github.com/AntoniosKalattas/Automatic-Gym-Reservation/blob/main/img/img.png?raw=true" alt="UCY Automatic Reservation" class="project-img" onerror="this.src='./designIcon.png'">
+                                <div class="project-category-badge">DESKTOP // PYTHON</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">UCY Gym Reservation</h3>
+                                <p class="project-desc">
+                                    Cross-platform automation script that bypasses manual bookings to reserve training sessions at the UCY Sports Center, executing bookings instantly upon slot release.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>Python</span>
+                                    <span>Selenium</span>
+                                    <span>Automation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/Automatic-Gym-Reservation" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- One Stop Ride Hail -->
+                        <article class="project-card-cyber cyber-card" data-category="web">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <img src="https://github.com/AntoniosKalattas/One-Stop-Ride-Hail---EPL342/blob/main/img/img.png?raw=true" alt="One Stop Ride Hail" class="project-img" style="object-fit: cover;" onerror="this.src='./designIcon.png'">
+                                <div class="project-category-badge">WEB // FAT_DB</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">One-Stop Ride Hail (EPL342)</h3>
+                                <p class="project-desc">
+                                    Full-stack taxi booking platform designed with a "Fat Database" architecture. Core operations are fully encapsulated inside T-SQL Stored Procedures on SQL Server, exposed via a Node.js API.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>T-SQL</span>
+                                    <span>NodeJS</span>
+                                    <span>Express</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/One-Stop-Ride-Hail---EPL342" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- NewsFeed -->
+                        <article class="project-card-cyber cyber-card" data-category="web">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <img src="https://github.com/AntoniosKalattas/News-feed/blob/main/img/img.png?raw=true" alt="NewsFeed Portal" class="project-img" onerror="this.src='./designIcon.png'">
+                                <div class="project-category-badge">WEB // SCRAPER</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">NewsFeed</h3>
+                                <p class="project-desc">
+                                    Automated scraper gathering articles from BBC and CNN. Processes raw scripts using OpenAI's API to construct a simplified page displaying dynamic executive summaries.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>Python</span>
+                                    <span>OpenAI API</span>
+                                    <span>BeautifulSoup</span>
+                                    <span>JS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/News-feed" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ST-Dashboard -->
+                        <article class="project-card-cyber cyber-card" data-category="desktop">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <img src="https://github.com/AntoniosKalattas/Student-DB/blob/main/img/img.png?raw=true" alt="Student Dashboard" class="project-img" style="object-fit: cover;" onerror="this.src='./designIcon.png'">
+                                <div class="project-category-badge">DESKTOP // ELECTRON</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">ST-Dashboard</h3>
+                                <p class="project-desc">
+                                    Interactive student desktop dashboard enabling tracking of study cycles, breaks, tasks, sleep patterns, and project timelines. High quality visual charts built in plain CSS/JS.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>ElectronJS</span>
+                                    <span>JavaScript</span>
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/Student-DB" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ToDo App -->
+                        <article class="project-card-cyber cyber-card" data-category="mobile">
+                            <div class="card-glow-overlay"></div>
+                            <div class="project-img-wrapper">
+                                <div class="phone-frame">
+                                    <div class="phone-notch"></div>
+                                    <img src="https://github.com/AntoniosKalattas/todo-app/blob/main/img/img.png?raw=true" alt="ToDo App" class="project-img" onerror="this.src='./designIcon.png'">
+                                </div>
+                                <div class="project-category-badge">MOBILE // DESKTOP</div>
+                            </div>
+                            <div class="project-body">
+                                <h3 class="project-name">ToDo App (PC/Android)</h3>
+                                <p class="project-desc">
+                                    Cross-platform, offline-first notes organizer built with Cordova, syncing tasks directly across Android devices and PC shells with instant local reads.
+                                </p>
+                                <div class="tech-tags">
+                                    <span>Cordova</span>
+                                    <span>JS</span>
+                                    <span>Mobile Integration</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/AntoniosKalattas/todo-app" target="_blank" class="project-link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                        <span>SOURCE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- 04. CERTIFICATIONS & HONORS MODULE -->
+                <section class="panel-section" id="certifications" data-page="resume">
+                    <div class="terminal-intro">
+                        <span class="code-comment">// QUERYING SYSTEM ACHIEVEMENTS...</span>
+                        <h2 class="section-title">CERTIFICATIONS & HONORS</h2>
+                    </div>
+
+                    <!-- Certifications Grid -->
+                    <div class="certifications-grid">
+                        
+                        <div class="cert-card cyber-card">
+                            <div class="cert-icon-wrapper cyan-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </div>
+                            <div class="cert-details">
+                                <h4 class="cert-title">Cisco Certified Network Associate Industrial (CCNA I)</h4>
+                                <span class="cert-meta">Cisco // Issued: May 2021</span>
+                                <div class="cert-actions">
+                                    <a href="https://drive.google.com/file/d/157GfO5v7h-CWWAAwE7Q0v5UlUeQo6g02/view?usp=sharing" target="_blank" class="cert-btn-link">VERIFY_SYSTEM</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card cyber-card">
+                            <div class="cert-icon-wrapper green-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                            </div>
+                            <div class="cert-details">
+                                <h4 class="cert-title">Problem Solving (Basic) Certificate</h4>
+                                <span class="cert-meta">HackerRank // Issued: December 2021</span>
+                                <div class="cert-actions">
+                                    <a href="https://www.hackerrank.com/certificates/09050d619f6e" target="_blank" class="cert-btn-link">VERIFY_SYSTEM</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card cyber-card">
+                            <div class="cert-icon-wrapper purple-glow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                            </div>
+                            <div class="cert-details">
+                                <h4 class="cert-title">Java (Basic) Certificate</h4>
+                                <span class="cert-meta">HackerRank // Issued: September 2024</span>
+                                <div class="cert-actions">
+                                    <a href="https://www.hackerrank.com/certificates/c7fbbd9cede0" target="_blank" class="cert-btn-link">VERIFY_SYSTEM</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card cyber-card">
+                            <div class="cert-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                            </div>
+                            <div class="cert-details">
+                                <h4 class="cert-title">Introduction to Python</h4>
+                                <span class="cert-meta">IEEE // Issued: February 2025</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Honors Sub-section -->
+                    <div class="honors-wrapper">
+                        <h3 class="sub-section-title">ACADEMIC HONORS & AWARDS</h3>
+                        <div class="honors-list">
+                            <div class="honor-card cyber-card">
+                                <div class="badge-icon">🥉</div>
+                                <div class="honor-info">
+                                    <h4 class="honor-title">3rd Place // Bank Of Cyprus Fintech Hackathon 6.0</h4>
+                                    <p class="honor-desc">Awarded in 2025 for designing and developing automated banking application integrations under extreme timelines.</p>
+                                </div>
+                            </div>
+                            <div class="honor-card cyber-card">
+                                <div class="badge-icon">🥈</div>
+                                <div class="honor-info">
+                                    <h4 class="honor-title">2nd Place // Database Engine Semester Project (EPL342)</h4>
+                                    <p class="honor-desc">Awarded for the design and construction of the taxi booking database server architecture, optimizing complex multi-row stored transactions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 05. INTERACTIVE CLI TERMINAL -->
+                <section class="panel-section" id="cli" data-page="contact">
+                    <div class="terminal-intro">
+                        <span class="code-comment">// SYSTEM CORE TERMINAL SIMULATOR. ONLINE.</span>
+                        <h2 class="section-title">COMMAND LINE INTERFACE</h2>
+                    </div>
+
+                    <div class="terminal-window cyber-card">
+                        <div class="terminal-header">
+                            <span class="term-title">visitor@kalattas.dev:~$</span>
+                            <span class="dot-buttons"><span></span><span></span><span></span></span>
+                        </div>
+                        <div class="terminal-body-content" id="terminal-history">
+                            <div class="output-line">// WELCOME TO THE KALATTAS PORTAL CORE TERMINAL</div>
+                            <div class="output-line">// TYPE <span class="cmd">help</span> TO LIST AVAILABLE COMMANDS.</div>
+                            <div class="output-line">&nbsp;</div>
+                        </div>
+                        <div class="terminal-input-row">
+                            <span class="prompt">visitor@kalattas.dev:~$</span>
+                            <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false" placeholder="Enter command...">
+                        </div>
+                    </div>
+
+                    <!-- Terminal Shortcuts -->
+                    <div class="terminal-shortcuts">
+                        <span class="label">CLICK SHORTCUTS:</span>
+                        <div class="shortcut-buttons">
+                            <button class="shortcut-btn" data-cmd="help">help</button>
+                            <button class="shortcut-btn" data-cmd="about">about</button>
+                            <button class="shortcut-btn" data-cmd="skills">skills</button>
+                            <button class="shortcut-btn" data-cmd="projects">projects</button>
+                            <button class="shortcut-btn" data-cmd="contact">contact</button>
+                            <button class="shortcut-btn" data-cmd="matrix">matrix</button>
+                            <button class="shortcut-btn" data-cmd="clear">clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Contact Panel -->
+                    <div class="contact-form-wrapper">
+                        <h3 class="sub-section-title">ENCRYPTED MESSAGE DISPATCHER</h3>
+                        
+                        <div class="contact-layout">
+                            <form action="https://formspree.io/f/mldglowr" method="POST" class="cyber-form" id="cyber-message-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullname">SENDER_NAME:</label>
+                                        <input type="text" id="fullname" name="fullname" required placeholder="Enter name...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">SENDER_EMAIL:</label>
+                                        <input type="email" id="email" name="email" required placeholder="Enter email...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">MESSAGE_CONTENT:</label>
+                                    <textarea id="message" name="message" required placeholder="Encrypt your transmission here..."></textarea>
+                                </div>
+                                <button type="submit" class="cyber-btn success-btn" id="submit-btn" disabled>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                    <span>DISPATCH_TRANSMISSION</span>
+                                </button>
+                            </form>
+
+                            <div class="map-wrapper cyber-card">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3335.545515414907!2d33.385837775758425!3d35.019891172807874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDAxJzExLjYiTiAzM8KwMjMnMTguMyJF!5e1!3m2!1sel!2s!4v1739047754499!5m2!1sel!2s" loading="lazy" title="Geographic Target Area - Nicosia"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
